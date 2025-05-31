@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="AddEmergencyContactController"
+      spacing="10"
+      alignment="CENTER">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label fx:id="titleLabel" text="Add Emergency Contact" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+    <TextField fx:id="nameField" promptText="Contact Name" />
+    <TextField fx:id="phoneField" promptText="Contact Phone" />
+    <Button fx:id="addBtn" text="Add Contact" />
+    <Label fx:id="statusLabel" text="" />
+</VBox>

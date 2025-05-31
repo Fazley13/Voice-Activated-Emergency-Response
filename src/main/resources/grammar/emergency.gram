@@ -1,0 +1,4 @@
+#JSGF V1.0;
+grammar emergency;
+
+public <command> = help | help me | I need help | fire | fire alert | robbery | attack;
