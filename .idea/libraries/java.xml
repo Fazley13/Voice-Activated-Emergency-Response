@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="java">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../javafx-sdk-24.0.1/lib" />
+      <root url="file://$PROJECT_DIR$/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/libs/sphinx4-master/sphinx4-master/sphinx4-core/src/main/java" />
+      <root url="file://$PROJECT_DIR$/libs/sphinx4-master/sphinx4-master/sphinx4-core/src/test/java" />
+      <root url="file://$PROJECT_DIR$/libs/sphinx4-master/sphinx4-master/sphinx4-samples/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../../../../javafx-sdk-24.0.1" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../javafx-sdk-24.0.1/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/libs" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../javafx-sdk-24.0.1" recursive="false" type="SOURCES" />
+  </library>
+</component>

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/libs/sphinx4-master/sphinx4-master/sphinx4-core/src/main/java" />
+      <root url="file://$PROJECT_DIR$/libs/sphinx4-master/sphinx4-master/sphinx4-core/src/test/java" />
+      <root url="file://$PROJECT_DIR$/libs/sphinx4-master/sphinx4-master/sphinx4-samples/src/main/java" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/libs" recursive="false" />
+  </library>
+</component>
