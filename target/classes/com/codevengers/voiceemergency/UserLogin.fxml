@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.codevengers.voiceemergency.UserLoginController">
+   <children>
+      <!-- Full Screen Background -->
+      <VBox minHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #6c7ce0;">
+         <children>
+            <!-- Top Navigation Bar -->
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" style="-fx-padding: 20 30 20 30;">
+               <children>
+                  <!-- Left Side - App Title and Subtitle -->
+                  <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/sound-sensor.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="QuickRescue User Login">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <Text fill="#E8EAFF" strokeType="OUTSIDE" strokeWidth="0.0" text="Access Your Personal Account">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  
+                  <!-- Right Side - Back to Home Button -->
+                  <Button onAction="#handleBackToDashboard" prefHeight="40.0" prefWidth="140.0" text="Back to Home" 
+                        style="-fx-background-color: rgba(255,255,255,0.2); 
+                               -fx-text-fill: white; 
+                               -fx-font-size: 14px; 
+                               -fx-background-radius: 20; 
+                               -fx-border-color: rgba(255,255,255,0.3); 
+                               -fx-border-width: 1; 
+                               -fx-border-radius: 20;">
+                  </Button>
+               </children>
+            </HBox>
+            
+            <!-- Scrollable Content Area -->
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" 
+                        style="-fx-background: transparent; -fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+               <content>
+                  <!-- Center Container -->
+                  <VBox alignment="CENTER" minHeight="600.0" style="-fx-padding: 20 0 50 0;">
+                     <children>
+                        <!-- Main Card -->
+                        <VBox maxWidth="450.0" spacing="0.0" 
+                              style="-fx-background-color: white; 
+                                     -fx-background-radius: 15; 
+                                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 20, 0, 0, 5);">
+                           <children>
+                              <!-- Card Header -->
+                              <HBox alignment="CENTER" prefHeight="60.0" 
+                                    style="-fx-background-color: #4A90E2; 
+                                           -fx-background-radius: 15 15 0 0;">
+                                 <children>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@assets/sound-sensor.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              
+                              <!-- Card Content -->
+                              <VBox spacing="25.0" style="-fx-padding: 40 40 40 40;">
+                                 <children>
+                                    <!-- Title Section -->
+                                    <VBox alignment="CENTER" spacing="8.0">
+                                       <children>
+                                          <Text fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fill="#7F8C8D" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in to your account" textAlignment="CENTER">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    
+                                    <!-- Form Fields -->
+                                    <VBox spacing="20.0">
+                                       <children>
+                                          <!-- Email Field -->
+                                          <VBox spacing="8.0">
+                                             <children>
+                                                <Label text="Email Address" textFill="#2C3E50">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="emailField" promptText="Enter your email" 
+                                                         style="-fx-background-color: #F8F9FA; 
+                                                                -fx-border-color: #E9ECEF; 
+                                                                -fx-border-width: 1; 
+                                                                -fx-border-radius: 8; 
+                                                                -fx-background-radius: 8; 
+                                                                -fx-padding: 15; 
+                                                                -fx-font-size: 14px; 
+                                                                -fx-prompt-text-fill: #ADB5BD;">
+                                                </TextField>
+                                             </children>
+                                          </VBox>
+                                          
+                                          <!-- Password Field -->
+                                          <VBox spacing="8.0">
+                                             <children>
+                                                <Label text="Password" textFill="#2C3E50">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <PasswordField fx:id="passwordField" promptText="Enter your password" 
+                                                             style="-fx-background-color: #F8F9FA; 
+                                                                    -fx-border-color: #E9ECEF; 
+                                                                    -fx-border-width: 1; 
+                                                                    -fx-border-radius: 8; 
+                                                                    -fx-background-radius: 8; 
+                                                                    -fx-padding: 15; 
+                                                                    -fx-font-size: 14px; 
+                                                                    -fx-prompt-text-fill: #ADB5BD;">
+                                                </PasswordField>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                    
+                                    <!-- Remember Me and Forgot Password -->
+                                    <HBox alignment="CENTER" spacing="80.0">
+                                       <children>
+                                          <CheckBox fx:id="rememberMeCheckbox" text="Remember me" 
+                                                  style="-fx-text-fill: #6C757D; -fx-font-size: 14px;">
+                                          </CheckBox>
+                                          <Hyperlink onAction="#handleForgotPassword" text="Forgot Password?" textFill="#4A90E2" 
+                                                   style="-fx-font-size: 14px;">
+                                          </Hyperlink>
+                                       </children>
+                                    </HBox>
+                                    
+                                    <!-- Status Label -->
+                                    <Label fx:id="statusLabel" textFill="#DC3545" wrapText="true" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    
+                                    <!-- Login Button -->
+                                    <Button fx:id="loginButton" onAction="#handleLogin" prefHeight="50.0" prefWidth="370.0" text="Sign In" 
+                                          style="-fx-background-color: #4A90E2; 
+                                                 -fx-text-fill: white; 
+                                                 -fx-font-size: 16px; 
+                                                 -fx-font-weight: bold; 
+                                                 -fx-background-radius: 25;">
+                                    </Button>
+                                    
+                                    <!-- Register Link -->
+                                    <HBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Text fill="#6C757D" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Hyperlink onAction="#handleRegisterRedirect" text="Create Account" textFill="#4A90E2" 
+                                                   style="-fx-font-size: 14px; -fx-font-weight: bold;">
+                                          </Hyperlink>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

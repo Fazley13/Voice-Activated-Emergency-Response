@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.codevengers.voiceemergency.UserChatController">
+    <children>
+        <BorderPane AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+            <!-- Top Header -->
+            <top>
+                <HBox alignment="CENTER_LEFT" prefHeight="80.0" style="-fx-background-color: #E74C3C; -fx-padding: 15 30;">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="15.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <VBox spacing="2.0">
+                                    <children>
+                                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="QuickRescue Emergency Chat">
+                                            <font>
+                                                <Font name="System Bold" size="20.0" />
+                                            </font>
+                                        </Text>
+                                        <HBox spacing="10.0" alignment="CENTER_LEFT">
+                                            <children>
+                                                <Text fx:id="connectionStatusIcon" fill="#27AE60" strokeType="OUTSIDE" strokeWidth="0.0" text="🟢">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fx:id="connectionStatusText" fill="#FADBD8" strokeType="OUTSIDE" strokeWidth="0.0" text="Connected to Emergency Services">
+                                                    <font>
+                                                        <Font size="12.0" />
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                            <children>
+                                <VBox alignment="CENTER_RIGHT" spacing="2.0">
+                                    <children>
+                                        <Text fx:id="userNameLabel" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Text>
+                                        <Text fill="#FADBD8" strokeType="OUTSIDE" strokeWidth="0.0" text="Emergency Chat User">
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </VBox>
+                                <Button onAction="#handleBackToDashboard" prefHeight="35.0" prefWidth="100.0" text="← Dashboard"
+                                        style="-fx-background-color: #C0392B;
+                                     -fx-text-fill: white;
+                                     -fx-font-size: 12px;
+                                     -fx-font-weight: bold;
+                                     -fx-background-radius: 18;">
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+            </top>
+
+            <!-- Main Chat Area -->
+            <center>
+                <VBox spacing="0">
+                    <children>
+
+                        <!-- Emergency Quick Messages -->
+                        <VBox spacing="10.0" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #BDC3C7; -fx-border-width: 0 0 1 0;">
+                            <children>
+                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                    <children>
+                                        <Text fill="#E74C3C" strokeType="OUTSIDE" strokeWidth="0.0" text="🚨">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Text>
+                                        <Text fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Emergency Quick Messages">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </HBox>
+
+                                <GridPane hgap="10.0" vgap="10.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                    </columnConstraints>
+                                    <children>
+                                        <Button onAction="#sendEmergencyMessage" prefHeight="35.0" prefWidth="200.0" text="Help me immediately!" userData="Help me immediately!"
+                                                style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 15; -fx-font-weight: bold;"
+                                                GridPane.columnIndex="0" GridPane.rowIndex="0" />
+
+                                        <Button onAction="#sendEmergencyMessage" prefHeight="35.0" prefWidth="200.0" text="I'm in danger" userData="I'm in danger"
+                                                style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 15; -fx-font-weight: bold;"
+                                                GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                        <Button onAction="#sendEmergencyMessage" prefHeight="35.0" prefWidth="200.0" text="Call police now" userData="Call police now"
+                                                style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 15; -fx-font-weight: bold;"
+                                                GridPane.columnIndex="2" GridPane.rowIndex="0" />
+
+                                        <Button onAction="#sendEmergencyMessage" prefHeight="35.0" prefWidth="200.0" text="Medical emergency" userData="Medical emergency"
+                                                style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 15; -fx-font-weight: bold;"
+                                                GridPane.columnIndex="0" GridPane.rowIndex="1" />
+
+                                        <Button onAction="#sendEmergencyMessage" prefHeight="35.0" prefWidth="200.0" text="Fire emergency" userData="Fire emergency"
+                                                style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 15; -fx-font-weight: bold;"
+                                                GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                        <Button onAction="#sendEmergencyMessage" prefHeight="35.0" prefWidth="200.0" text="I need assistance" userData="I need assistance"
+                                                style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 15; -fx-font-weight: bold;"
+                                                GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </VBox>
+
+                        <!-- Chat Messages Area -->
+                        <ScrollPane fx:id="messagesScrollPane" fitToWidth="true" prefHeight="400.0" style="-fx-background-color: #F8F9FA;" VBox.vgrow="ALWAYS">
+                            <content>
+                                <VBox fx:id="messagesContainer" spacing="10.0" style="-fx-padding: 20;">
+                                    <children>
+                                        <!-- Welcome message -->
+                                        <VBox alignment="CENTER" spacing="10.0" style="-fx-padding: 20;">
+                                            <children>
+                                                <Text fill="#7F8C8D" strokeType="OUTSIDE" strokeWidth="0.0" text="🛡️">
+                                                    <font>
+                                                        <Font size="48.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Emergency Support Ready" textAlignment="CENTER">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#7F8C8D" strokeType="OUTSIDE" strokeWidth="0.0" text="Send a message or use quick emergency buttons above.&#10;Our emergency response team is standing by 24/7." textAlignment="CENTER">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+
+                        <!-- Message Input Area -->
+                        <VBox spacing="10.0" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #BDC3C7; -fx-border-width: 1 0 0 0;">
+                            <children>
+                                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                                    <children>
+                                        <TextField fx:id="messageInput" promptText="Type your message or describe your emergency..." prefHeight="40.0" HBox.hgrow="ALWAYS"
+                                                   style="-fx-background-radius: 20; -fx-padding: 10 15; -fx-border-color: #BDC3C7; -fx-border-radius: 20; -fx-border-width: 1;">
+                                        </TextField>
+                                        <Button fx:id="sendButton" onAction="#sendMessage" prefHeight="40.0" prefWidth="100.0" text="Send 📤"
+                                                style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: bold;">
+                                        </Button>
+                                    </children>
+                                </HBox>
+
+                                <HBox alignment="CENTER_LEFT" spacing="20.0">
+                                    <children>
+                                        <Text fill="#27AE60" strokeType="OUTSIDE" strokeWidth="0.0" text="🔒 End-to-end encrypted">
+                                            <font>
+                                                <Font size="10.0" />
+                                            </font>
+                                        </Text>
+                                        <Text fill="#27AE60" strokeType="OUTSIDE" strokeWidth="0.0" text="⚡ Real-time delivery">
+                                            <font>
+                                                <Font size="10.0" />
+                                            </font>
+                                        </Text>
+                                        <Text fx:id="typingIndicator" fill="#7F8C8D" strokeType="OUTSIDE" strokeWidth="0.0" text="" visible="false">
+                                            <font>
+                                                <Font style="-fx-font-style: italic;" size="10.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

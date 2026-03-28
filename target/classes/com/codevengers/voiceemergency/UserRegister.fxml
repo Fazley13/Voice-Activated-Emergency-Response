@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.codevengers.voiceemergency.UserRegisterController">
+   <children>
+      <VBox style="-fx-background-color: #6c7ce0;" 
+            AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" style="-fx-padding: 20 30 20 30;">
+               <children>
+                  <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/com/codevengers/voiceemergency/sound-sensor.png"/>
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="QuickRescue User Registration">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <Text fill="#E8EAFF" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Personal Account">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <Button onAction="#handleBackToDashboard" prefHeight="40.0" prefWidth="140.0" text="Back to Home" 
+                        style="-fx-background-color: rgba(255,255,255,0.2); 
+                               -fx-text-fill: white; 
+                               -fx-font-size: 14px; 
+                               -fx-background-radius: 20; 
+                               -fx-border-color: rgba(255,255,255,0.3); 
+                               -fx-border-width: 1; 
+                               -fx-border-radius: 20;">
+                  </Button>
+               </children>
+            </HBox>
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" 
+                        style="-fx-background: transparent; -fx-background-color: transparent;"
+                        VBox.vgrow="ALWAYS"
+                        minViewportHeight="600">
+               <content>
+                  <VBox alignment="CENTER" style="-fx-padding: 20 0 50 0;" minHeight="-Infinity">
+                     <children>
+                        <VBox maxWidth="450.0" spacing="0.0" 
+                              style="-fx-background-color: white; 
+                                     -fx-background-radius: 15; 
+                                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 20, 0, 0, 5);">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="60.0" 
+                                    style="-fx-background-color: #4A90E2; 
+                                           -fx-background-radius: 15 15 0 0;">
+                                 <children>
+                                    <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/com/codevengers/voiceemergency/sound-sensor.png"/>
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <VBox spacing="25.0" style="-fx-padding: 40 40 40 40;">
+                                 <children>
+                                    <VBox alignment="CENTER" spacing="8.0">
+                                       <children>
+                                          <Text fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Create User Account" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fill="#7F8C8D" strokeType="OUTSIDE" strokeWidth="0.0" text="Join our emergency response platform" textAlignment="CENTER">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="20.0">
+                                       <children>
+                                          <VBox spacing="8.0">
+                                             <children>
+                                                <Label text="Username" textFill="#2C3E50">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="usernameField" promptText="Choose a username" 
+                                                         style="-fx-background-color: #F8F9FA; 
+                                                                -fx-border-color: #E9ECEF; 
+                                                                -fx-border-width: 1; 
+                                                                -fx-border-radius: 8; 
+                                                                -fx-background-radius: 8; 
+                                                                -fx-padding: 15; 
+                                                                -fx-font-size: 14px; 
+                                                                -fx-prompt-text-fill: #ADB5BD;">
+                                                </TextField>
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="8.0">
+                                             <children>
+                                                <Label text="Email Address" textFill="#2C3E50">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="emailField" promptText="Enter your email" 
+                                                         style="-fx-background-color: #F8F9FA; 
+                                                                -fx-border-color: #E9ECEF; 
+                                                                -fx-border-width: 1; 
+                                                                -fx-border-radius: 8; 
+                                                                -fx-background-radius: 8; 
+                                                                -fx-padding: 15; 
+                                                                -fx-font-size: 14px; 
+                                                                -fx-prompt-text-fill: #ADB5BD;">
+                                                </TextField>
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="8.0">
+                                             <children>
+                                                <Label text="Password" textFill="#2C3E50">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <PasswordField fx:id="passwordField" promptText="Create a password" 
+                                                             style="-fx-background-color: #F8F9FA; 
+                                                                    -fx-border-color: #E9ECEF; 
+                                                                    -fx-border-width: 1; 
+                                                                    -fx-border-radius: 8; 
+                                                                    -fx-background-radius: 8; 
+                                                                    -fx-padding: 15; 
+                                                                    -fx-font-size: 14px; 
+                                                                    -fx-prompt-text-fill: #ADB5BD;">
+                                                </PasswordField>
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="8.0">
+                                             <children>
+                                                <Label text="Confirm Password" textFill="#2C3E50">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <PasswordField fx:id="confirmPasswordField" promptText="Confirm your password" 
+                                                             style="-fx-background-color: #F8F9FA; 
+                                                                    -fx-border-color: #E9ECEF; 
+                                                                    -fx-border-width: 1; 
+                                                                    -fx-border-radius: 8; 
+                                                                    -fx-background-radius: 8; 
+                                                                    -fx-padding: 15; 
+                                                                    -fx-font-size: 14px; 
+                                                                    -fx-prompt-text-fill: #ADB5BD;">
+                                                </PasswordField>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <CheckBox fx:id="termsCheckbox" />
+                                          <Text fill="#6C757D" strokeType="OUTSIDE" strokeWidth="0.0" text="I agree to the terms and conditions">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="statusLabel" textFill="#DC3545" wrapText="true" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="registerButton" onAction="#handleRegister" prefHeight="50.0" prefWidth="370.0" text="Create Account" 
+                                          style="-fx-background-color: #4A90E2; 
+                                                 -fx-text-fill: white; 
+                                                 -fx-font-size: 16px; 
+                                                 -fx-font-weight: bold; 
+                                                 -fx-background-radius: 25;">
+                                    </Button>
+                                    <HBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Text fill="#6C757D" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Hyperlink onAction="#handleLoginRedirect" text="Login here" textFill="#4A90E2" 
+                                                   style="-fx-font-size: 14px; -fx-font-weight: bold;">
+                                          </Hyperlink>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

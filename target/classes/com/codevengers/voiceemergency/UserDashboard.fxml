@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.codevengers.voiceemergency.UserDashboardController">
+    <children>
+        <BorderPane AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+            <!-- Top Header -->
+            <top>
+                <HBox alignment="CENTER_LEFT" prefHeight="80.0" style="-fx-background-color: #E74C3C; -fx-padding: 15 30;">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="15.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <ImageView fitHeight="32.0" fitWidth="32.0" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/com/codevengers/voiceemergency/assets/sound-sensor.png"/>
+                                    </image>
+                                </ImageView>
+                                <VBox spacing="2.0">
+                                    <children>
+                                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="QuickRescue User Dashboard">
+                                            <font>
+                                                <Font name="System Bold" size="20.0" />
+                                            </font>
+                                        </Text>
+                                        <Text fill="#FADBD8" strokeType="OUTSIDE" strokeWidth="0.0" text="Emergency Response System">
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                            <children>
+                                <!-- Single Chat Notification Button -->
+                                <HBox alignment="CENTER" spacing="5.0">
+                                    <children>
+                                        <Button fx:id="chatNotificationBtn" onAction="#showChatSupport" text="💬"
+                                                style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 20; -fx-padding: 8 12;">
+                                        </Button>
+                                        <Label fx:id="chatUnreadBadge" text="0" textFill="WHITE" visible="false"
+                                               style="-fx-background-color: #F39C12; -fx-background-radius: 10; -fx-padding: 2 6; -fx-font-weight: bold; -fx-font-size: 10px;">
+                                        </Label>
+                                    </children>
+                                </HBox>
+
+                                <VBox alignment="CENTER_RIGHT" spacing="2.0">
+                                    <children>
+                                        <Text fx:id="userNameLabel" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Text>
+                                        <Text fx:id="userStatusLabel" fill="#FADBD8" strokeType="OUTSIDE" strokeWidth="0.0" text="Active">
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </VBox>
+                                <Button onAction="#handleLogout" prefHeight="35.0" prefWidth="80.0" text="Logout"
+                                        style="-fx-background-color: #C0392B;
+                                     -fx-text-fill: white;
+                                     -fx-font-size: 12px;
+                                     -fx-font-weight: bold;
+                                     -fx-background-radius: 18;">
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+            </top>
+
+            <!-- Left Sidebar -->
+            <left>
+                <VBox prefWidth="280.0" style="-fx-background-color: #2C3E50; -fx-padding: 20 0;">
+                    <children>
+                        <Label text="EMERGENCY CONTROLS" textFill="#BDC3C7" style="-fx-padding: 0 20; -fx-font-weight: bold; -fx-font-size: 12px;">
+                        </Label>
+
+                        <VBox spacing="5.0" style="-fx-padding: 10 0;">
+                            <children>
+                                <Button fx:id="dashboardBtn" onAction="#showDashboardView" prefHeight="45.0" prefWidth="280.0" text="🏠 Dashboard Home"
+                                        style="-fx-background-color: #E74C3C;
+                                     -fx-text-fill: white;
+                                     -fx-font-size: 14px;
+                                     -fx-alignment: CENTER_LEFT;
+                                     -fx-padding: 0 20;
+                                     -fx-background-radius: 0;">
+                                </Button>
+                                <!-- Add this button in your emergency controls section -->
+                                <Button fx:id="stopAudioBtn" text="🛑 Stop Audio Recording"
+                                        onAction="#stopAudioManually"
+                                        visible="false"
+                                        style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 12px;"
+                                        prefWidth="180" prefHeight="35"/>
+
+                                <Button fx:id="panicBtn" onAction="#showPanicButton" prefHeight="45.0" prefWidth="280.0" text="🔘 Panic Button"
+                                        style="-fx-background-color: transparent;
+                                     -fx-text-fill: #BDC3C7;
+                                     -fx-font-size: 14px;
+                                     -fx-alignment: CENTER_LEFT;
+                                     -fx-padding: 0 20;
+                                     -fx-background-radius: 0;">
+                                </Button>
+
+                                <Button fx:id="voiceActivationBtn" onAction="#showVoiceActivation" prefHeight="45.0" prefWidth="280.0" text="🎙️ Voice Activation"
+                                        style="-fx-background-color: transparent;
+                                     -fx-text-fill: #BDC3C7;
+                                     -fx-font-size: 14px;
+                                     -fx-alignment: CENTER_LEFT;
+                                     -fx-padding: 0 20;
+                                     -fx-background-radius: 0;">
+                                </Button>
+                                <TitledPane fx:id="policeContactsSection" text="🚔 Police Numbers"
+                                            style="-fx-text-fill: #BDC3C7; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-color: transparent;">
+                                    <content>
+                                        <VBox fx:id="policeContactsPanel" spacing="5.0" style="-fx-padding: 5;">
+                                            <!-- Police contacts will be loaded here dynamically -->
+                                        </VBox>
+                                    </content>
+                                </TitledPane>
+                                <Button fx:id="emergencyContactsBtn" onAction="#showEmergencyContacts" prefHeight="45.0" prefWidth="280.0" text="🧑‍🤝‍🧑 Emergency Contacts"
+                                        style="-fx-background-color: transparent;
+                                     -fx-text-fill: #BDC3C7;
+                                     -fx-font-size: 14px;
+                                     -fx-alignment: CENTER_LEFT;
+                                     -fx-padding: 0 20;
+                                     -fx-background-radius: 0;">
+                                </Button>
+
+                                <Button fx:id="incidentHistoryBtn" onAction="#showIncidentHistory" prefHeight="45.0" prefWidth="280.0" text="🗂️ Incident History"
+                                        style="-fx-background-color: transparent;
+                                     -fx-text-fill: #BDC3C7;
+                                     -fx-font-size: 14px;
+                                     -fx-alignment: CENTER_LEFT;
+                                     -fx-padding: 0 20;
+                                     -fx-background-radius: 0;">
+                                </Button>
+
+                                <!-- Single Chat Support Button with Badge -->
+                                <Button fx:id="chatSupportBtn" onAction="#showChatSupport" prefHeight="45.0" prefWidth="280.0"
+                                        style="-fx-background-color: transparent;
+                                     -fx-text-fill: #BDC3C7;
+                                     -fx-font-size: 14px;
+                                     -fx-alignment: CENTER_LEFT;
+                                     -fx-padding: 0 20;
+                                     -fx-background-radius: 0;">
+                                    <graphic>
+                                        <HBox spacing="10.0" alignment="CENTER_LEFT">
+                                            <children>
+                                                <Text text="💬 Chat Support" fill="#BDC3C7" />
+                                                <Label fx:id="sidebarChatBadge" text="0" textFill="WHITE" visible="false"
+                                                       style="-fx-background-color: #E74C3C; -fx-background-radius: 8; -fx-padding: 1 5; -fx-font-weight: bold; -fx-font-size: 9px;">
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                    </graphic>
+                                </Button>
+
+
+
+
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </left>
+
+            <!-- Main Content Area -->
+            <center>
+                <StackPane fx:id="contentArea" style="-fx-background-color: #ECF0F1;">
+                    <children>
+
+                        <!-- Dashboard Home View (Default) -->
+                        <ScrollPane fx:id="dashboardView" fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent;">
+                            <content>
+                                <VBox spacing="25.0" style="-fx-padding: 30;">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="20.0">
+                                            <children>
+                                                <Text fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Your Emergency Dashboard">
+                                                    <font>
+                                                        <Font name="System Bold" size="24.0" />
+                                                    </font>
+                                                </Text>
+
+                                                <!-- Single Quick Chat Access -->
+                                                <Button fx:id="quickChatBtn" onAction="#openChatSupport" text="💬 Quick Chat"
+                                                        style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-background-radius: 15; -fx-padding: 8 15;">
+                                                </Button>
+                                            </children>
+                                        </HBox>
+
+                                        <!-- Quick Actions -->
+                                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                                            <children>
+                                                <Text fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Quick Emergency Actions">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Text>
+
+                                                <HBox spacing="20.0">
+                                                    <children>
+                                                        <!-- Emergency Panic Button -->
+                                                        <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #E74C3C; -fx-background-radius: 15; -fx-padding: 30; -fx-cursor: hand;" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="🚨">
+                                                                    <font>
+                                                                        <Font size="48.0" />
+                                                                    </font>
+                                                                </Text>
+                                                                <Button fx:id="quickPanicBtn" onAction="#triggerEmergencyAlert" prefHeight="50.0" prefWidth="200.0" text="EMERGENCY PANIC"
+                                                                        style="-fx-background-color: #C0392B;
+                                                             -fx-text-fill: white;
+                                                             -fx-font-size: 16px;
+                                                             -fx-font-weight: bold;
+                                                             -fx-background-radius: 25;">
+                                                                </Button>
+                                                                <Text fill="#FADBD8" strokeType="OUTSIDE" strokeWidth="0.0" text="Press for immediate help" textAlignment="CENTER">
+                                                                    <font>
+                                                                        <Font size="12.0" />
+                                                                    </font>
+                                                                </Text>
+                                                            </children>
+                                                        </VBox>
+
+                                                        <!-- Voice Activation Status -->
+                                                        <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #27AE60; -fx-background-radius: 15; -fx-padding: 30;" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="🎙️">
+                                                                    <font>
+                                                                        <Font size="48.0" />
+                                                                    </font>
+                                                                </Text>
+                                                                <Text fx:id="voiceStatusText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Voice Detection: ON" textAlignment="CENTER">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="16.0" />
+                                                                    </font>
+                                                                </Text>
+                                                                <ToggleButton fx:id="voiceToggle" onAction="#toggleVoiceActivation" text="Toggle Voice"
+                                                                              style="-fx-background-color: #229954; -fx-text-fill: white; -fx-background-radius: 15;">
+                                                                </ToggleButton>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+
+                                        <!-- Chat Support Section (Single) -->
+                                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="15.0">
+                                                    <children>
+                                                        <Text fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="💬">
+                                                            <font>
+                                                                <Font size="32.0" />
+                                                            </font>
+                                                        </Text>
+                                                        <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Text fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="24/7 Admin Support Chat">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="18.0" />
+                                                                    </font>
+                                                                </Text>
+                                                                <Text fx:id="chatStatusText" fill="#27AE60" strokeType="OUTSIDE" strokeWidth="0.0" text="Online - Ready to help you">
+                                                                    <font>
+                                                                        <Font size="14.0" />
+                                                                    </font>
+                                                                </Text>
+                                                            </children>
+                                                        </VBox>
+                                                        <VBox spacing="5.0" alignment="CENTER_RIGHT">
+                                                            <children>
+                                                                <Button fx:id="startChatBtn" onAction="#showChatSupport" text="Start Chat"
+                                                                        style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-background-radius: 15; -fx-padding: 8 20;">
+                                                                </Button>
+                                                                <Text fx:id="unreadMessagesText" fill="#E74C3C" strokeType="OUTSIDE" strokeWidth="0.0" text="" visible="false">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                    </font>
+                                                                </Text>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+
+                                        <!-- System Status Overview -->
+                                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                                            <children>
+                                                <Text fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="System Status Overview">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Text>
+
+                                                <HBox spacing="20.0">
+                                                    <children>
+                                                        <VBox alignment="CENTER" spacing="8.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Text fx:id="locationStatusIcon" fill="#27AE60" strokeType="OUTSIDE" strokeWidth="0.0" text="📍">
+                                                                    <font>
+                                                                        <Font size="24.0" />
+                                                                    </font>
+                                                                </Text>
+                                                                <Text fx:id="locationStatusText" fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Location: Active">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                    </font>
+                                                                </Text>
+                                                            </children>
+                                                        </VBox>
+
+                                                        <VBox alignment="CENTER" spacing="8.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Text fx:id="microphoneStatusIcon" fill="#27AE60" strokeType="OUTSIDE" strokeWidth="0.0" text="🎤">
+                                                                    <font>
+                                                                        <Font size="24.0" />
+                                                                    </font>
+                                                                </Text>
+                                                                <Text fx:id="microphoneStatusText" fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Microphone: Ready">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                    </font>
+                                                                </Text>
+                                                            </children>
+                                                        </VBox>
+
+                                                        <VBox alignment="CENTER" spacing="8.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Text fx:id="connectionStatusIcon" fill="#27AE60" strokeType="OUTSIDE" strokeWidth="0.0" text="🌐">
+                                                                    <font>
+                                                                        <Font size="24.0" />
+                                                                    </font>
+                                                                </Text>
+                                                                <Text fx:id="connectionStatusText" fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Connection: Online">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                    </font>
+                                                                </Text>
+                                                            </children>
+                                                        </VBox>
+
+                                                        <VBox alignment="CENTER" spacing="8.0" HBox.hgrow="ALWAYS">
+                                                            <children>
+                                                                <Text fx:id="chatConnectionIcon" fill="#27AE60" strokeType="OUTSIDE" strokeWidth="0.0" text="💬">
+                                                                    <font>
+                                                                        <Font size="24.0" />
+                                                                    </font>
+                                                                </Text>
+                                                                <Text fx:id="chatConnectionText" fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat: Connected">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                    </font>
+                                                                </Text>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+
+                                        <!-- Recent Activity -->
+                                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                                            <children>
+                                                <Text fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Recent Emergency Activity">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Text>
+                                                <TableView fx:id="recentActivityTable" prefHeight="200.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="activityTimeColumn" prefWidth="150.0" text="Date/Time" />
+                                                        <TableColumn fx:id="activityTypeColumn" prefWidth="120.0" text="Type" />
+                                                        <TableColumn fx:id="activityLocationColumn" prefWidth="200.0" text="Location" />
+                                                        <TableColumn fx:id="activityStatusColumn" prefWidth="100.0" text="Status" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+
+                        <!-- Placeholder for other views -->
+                        <Label fx:id="placeholderView" text="Select a menu item to view content" textFill="#7F8C8D" visible="false">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
