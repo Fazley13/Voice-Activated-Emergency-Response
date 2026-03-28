@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.codevengers.voiceemergency.AdminDashboardController">
+    <children>
+        <BorderPane AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+            <!-- Top Header -->
+            <top>
+                <HBox alignment="CENTER_LEFT" prefHeight="80.0" style="-fx-background-color: #2C3E50; -fx-padding: 15 30;">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="15.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <ImageView fitHeight="32.0" fitWidth="32.0" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/com/codevengers/voiceemergency/sound-sensor.png"/>
+                                    </image>
+                                </ImageView>
+                                <VBox spacing="2.0">
+                                    <children>
+                                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="QuickRescue Admin Dashboard">
+                                            <font>
+                                                <Font name="System Bold" size="20.0" />
+                                            </font>
+                                        </Text>
+                                        <Text fill="#BDC3C7" strokeType="OUTSIDE" strokeWidth="0.0" text="Emergency Response Management System">
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <HBox alignment="CENTER_RIGHT" spacing="15.0">
+                            <children>
+                                <VBox alignment="CENTER_RIGHT" spacing="2.0">
+                                    <children>
+                                        <Text fx:id="adminNameLabel" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Administrator">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Text>
+                                        <Text fx:id="adminDepartmentLabel" fill="#BDC3C7" strokeType="OUTSIDE" strokeWidth="0.0" text="Department">
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </VBox>
+                                <Button onAction="#handleLogout" prefHeight="35.0" prefWidth="80.0" text="Logout"
+                                        style="-fx-background-color: #E74C3C;
+                                     -fx-text-fill: white;
+                                     -fx-font-size: 12px;
+                                     -fx-font-weight: bold;
+                                     -fx-background-radius: 18;">
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+            </top>
+
+            <!-- Left Sidebar -->
+            <left>
+                <VBox prefWidth="250.0" style="-fx-background-color: #34495E; -fx-padding: 20 0;">
+                    <children>
+                        <Label text="ADMIN CONTROLS" textFill="#BDC3C7" style="-fx-padding: 0 20; -fx-font-weight: bold; -fx-font-size: 12px;">
+                        </Label>
+
+                        <VBox spacing="5.0" style="-fx-padding: 10 0;">
+                            <children>
+                                <Button fx:id="dashboardBtn" onAction="#showDashboardView" prefHeight="45.0" prefWidth="250.0" text="📊 Dashboard Overview"
+                                        style="-fx-background-color: #3498DB;
+                                     -fx-text-fill: white;
+                                     -fx-font-size: 14px;
+                                     -fx-alignment: CENTER_LEFT;
+                                     -fx-padding: 0 20;
+                                     -fx-background-radius: 0;">
+                                </Button>
+
+                                <Button fx:id="emergencyReportsBtn" onAction="#showEmergencyReports" prefHeight="45.0" prefWidth="250.0" text="🚨 Emergency Reports"
+                                        style="-fx-background-color: transparent;
+                                     -fx-text-fill: #BDC3C7;
+                                     -fx-font-size: 14px;
+                                     -fx-alignment: CENTER_LEFT;
+                                     -fx-padding: 0 20;
+                                     -fx-background-radius: 0;">
+                                </Button>
+
+                                <Button fx:id="locationTrackingBtn" onAction="#showLocationTracking" prefHeight="45.0" prefWidth="250.0" text="📍 Location Tracking"
+                                        style="-fx-background-color: transparent;
+                                     -fx-text-fill: #BDC3C7;
+                                     -fx-font-size: 14px;
+                                     -fx-alignment: CENTER_LEFT;
+                                     -fx-padding: 0 20;
+                                     -fx-background-radius: 0;">
+                                </Button>
+
+                                <Button fx:id="incidentLogsBtn" onAction="#showIncidentLogs" prefHeight="45.0" prefWidth="250.0" text="📋 Incident Logs"
+                                        style="-fx-background-color: transparent;
+                                     -fx-text-fill: #BDC3C7;
+                                     -fx-font-size: 14px;
+                                     -fx-alignment: CENTER_LEFT;
+                                     -fx-padding: 0 20;
+                                     -fx-background-radius: 0;">
+                                </Button>
+                                <Button onAction="#handleChatSupport" style="-fx-background-color: #3498DB; -fx-text-fill: white;" text="💬 Chat Support" />
+
+                                <Button fx:id="userManagementBtn" onAction="#showUserManagement" prefHeight="45.0" prefWidth="250.0" text="👥 User Management"
+                                        style="-fx-background-color: transparent;
+                                     -fx-text-fill: #BDC3C7;
+                                     -fx-font-size: 14px;
+                                     -fx-alignment: CENTER_LEFT;
+                                     -fx-padding: 0 20;
+                                     -fx-background-radius: 0;">
+                                </Button>
+
+                                <Button fx:id="alertManagementBtn" onAction="#showAlertManagement" prefHeight="45.0" prefWidth="250.0" text="⚠️ Alert Management"
+                                        style="-fx-background-color: transparent;
+                                     -fx-text-fill: #BDC3C7;
+                                     -fx-font-size: 14px;
+                                     -fx-alignment: CENTER_LEFT;
+                                     -fx-padding: 0 20;
+                                     -fx-background-radius: 0;">
+                                </Button>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </left>
+
+            <!-- Main Content Area -->
+            <center>
+                <StackPane fx:id="contentArea" style="-fx-background-color: #ECF0F1;">
+                    <children>
+                        <!-- Dashboard Overview (Default View) -->
+                        <ScrollPane fx:id="dashboardView" fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent;">
+                            <content>
+                                <VBox spacing="20.0" style="-fx-padding: 30;">
+                                    <children>
+                                        <Text fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard Overview">
+                                            <font>
+                                                <Font name="System Bold" size="24.0" />
+                                            </font>
+                                        </Text>
+
+                                        <!-- Statistics Cards -->
+                                        <HBox spacing="20.0">
+                                            <children>
+                                                <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Text fill="#E74C3C" strokeType="OUTSIDE" strokeWidth="0.0" text="🚨">
+                                                            <font>
+                                                                <Font size="24.0" />
+                                                            </font>
+                                                        </Text>
+                                                        <Text fx:id="totalEmergenciesLabel" fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <font>
+                                                                <Font name="System Bold" size="28.0" />
+                                                            </font>
+                                                        </Text>
+                                                        <Text fill="#7F8C8D" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Emergencies">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Text>
+                                                    </children>
+                                                </VBox>
+
+                                                <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Text fill="#F39C12" strokeType="OUTSIDE" strokeWidth="0.0" text="⏳">
+                                                            <font>
+                                                                <Font size="24.0" />
+                                                            </font>
+                                                        </Text>
+                                                        <Text fx:id="activeEmergenciesLabel" fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <font>
+                                                                <Font name="System Bold" size="28.0" />
+                                                            </font>
+                                                        </Text>
+                                                        <Text fill="#7F8C8D" strokeType="OUTSIDE" strokeWidth="0.0" text="Active Emergencies">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Text>
+                                                    </children>
+                                                </VBox>
+
+                                                <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Text fill="#27AE60" strokeType="OUTSIDE" strokeWidth="0.0" text="✅">
+                                                            <font>
+                                                                <Font size="24.0" />
+                                                            </font>
+                                                        </Text>
+                                                        <Text fx:id="resolvedEmergenciesLabel" fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <font>
+                                                                <Font name="System Bold" size="28.0" />
+                                                            </font>
+                                                        </Text>
+                                                        <Text fill="#7F8C8D" strokeType="OUTSIDE" strokeWidth="0.0" text="Resolved Emergencies">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Text>
+                                                    </children>
+                                                </VBox>
+
+                                                <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Text fill="#3498DB" strokeType="OUTSIDE" strokeWidth="0.0" text="👥">
+                                                            <font>
+                                                                <Font size="24.0" />
+                                                            </font>
+                                                        </Text>
+                                                        <Text fx:id="totalUsersLabel" fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <font>
+                                                                <Font name="System Bold" size="28.0" />
+                                                            </font>
+                                                        </Text>
+                                                        <Text fill="#7F8C8D" strokeType="OUTSIDE" strokeWidth="0.0" text="Registered Users">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Text>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+
+                                        <!-- Recent Activity -->
+                                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                                            <children>
+                                                <Text fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Recent Emergency Activity">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Text>
+                                                <TableView fx:id="recentActivityTable" prefHeight="300.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="timeColumn" prefWidth="120.0" text="Time" />
+                                                        <TableColumn fx:id="userColumn" prefWidth="150.0" text="User" />
+                                                        <TableColumn fx:id="typeColumn" prefWidth="120.0" text="Type" />
+                                                        <TableColumn fx:id="locationColumn" prefWidth="200.0" text="Location" />
+                                                        <TableColumn fx:id="statusColumn" prefWidth="100.0" text="Status" />
+                                                        <TableColumn fx:id="actionColumn" prefWidth="100.0" text="Action" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+
+                        <!-- Emergency Reports View -->
+                        <ScrollPane fx:id="emergencyReportsView" fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent;" visible="false">
+                            <content>
+                                <VBox spacing="20.0" style="-fx-padding: 30;">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="20.0">
+                                            <children>
+                                                <Text fill="#2C3E50" strokeType="OUTSIDE" strokeWidth="0.0" text="Emergency Reports">
+                                                    <font>
+                                                        <Font name="System Bold" size="24.0" />
+                                                    </font>
+                                                </Text>
+                                                <Button onAction="#refreshEmergencyReports" text="🔄 Refresh"
+                                                        style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-background-radius: 15; -fx-padding: 8 15;">
+                                                </Button>
+                                            </children>
+                                        </HBox>
+
+                                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="15.0">
+                                                    <children>
+                                                        <TextField fx:id="searchField" promptText="Search by user, location, or type..." prefWidth="300.0"
+                                                                   style="-fx-background-radius: 15; -fx-padding: 10;">
+                                                        </TextField>
+                                                        <ComboBox fx:id="statusFilterCombo" promptText="Filter by Status" prefWidth="150.0">
+                                                        </ComboBox>
+                                                        <Button onAction="#searchEmergencies" text="🔍 Search"
+                                                                style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-background-radius: 15; -fx-padding: 8 15;">
+                                                        </Button>
+                                                    </children>
+                                                </HBox>
+
+                                                <TableView fx:id="emergencyReportsTable" prefHeight="400.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="emergencyIdColumn" prefWidth="80.0" text="ID" />
+                                                        <TableColumn fx:id="emergencyTimeColumn" prefWidth="130.0" text="Date/Time" />
+                                                        <TableColumn fx:id="emergencyUserColumn" prefWidth="120.0" text="User" />
+                                                        <TableColumn fx:id="emergencyTypeColumn" prefWidth="100.0" text="Type" />
+                                                        <TableColumn fx:id="emergencyLocationColumn" prefWidth="180.0" text="Location" />
+                                                        <TableColumn fx:id="emergencyStatusColumn" prefWidth="100.0" text="Status" />
+                                                        <TableColumn fx:id="emergencyActionsColumn" prefWidth="150.0" text="Actions" />
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+
+                        <!-- Other views will be added similarly -->
+                        <Label fx:id="placeholderView" text="Select a menu item to view content" textFill="#7F8C8D" visible="false">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

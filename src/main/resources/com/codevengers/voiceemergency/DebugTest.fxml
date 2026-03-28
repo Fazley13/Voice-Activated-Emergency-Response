@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.codevengers.voiceemergency.DebugController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="15.0" style="-fx-background-color: #f0f0f0; -fx-padding: 30;">
+         <children>
+            <Text fill="#2c3e50" strokeType="OUTSIDE" strokeWidth="0.0" text="FXML Injection Test">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            
+            <TextField fx:id="usernameField" promptText="Username" />
+            <TextField fx:id="emailField" promptText="Email" />
+            <PasswordField fx:id="passwordField" promptText="Password" />
+            <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" />
+            <CheckBox fx:id="termsCheckbox" text="I agree to terms" />
+            
+            <Label fx:id="statusLabel" text="Click the button to test FXML injection" textFill="BLUE" />
+            
+            <Button fx:id="registerButton" onAction="#handleRegister" text="Test FXML Injection" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10;" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
