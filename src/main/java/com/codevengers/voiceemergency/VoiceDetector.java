@@ -33,7 +33,7 @@ public class VoiceDetector implements Runnable {
                         case "fire":
                         case "robbery":
                         case "attack":
-                            if (!EmergencyHandler.isEmergencyTriggered) {
+                            if (!EmergencyHandler.isEmergencyTriggered()) {
                                 System.out.println("🚨 Keyword detected! Triggering emergency...");
                                 EmergencyHandler.triggerEmergency();
                             } else {

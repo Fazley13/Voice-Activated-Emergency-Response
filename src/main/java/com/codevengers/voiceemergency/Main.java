@@ -1,39 +1,47 @@
 package com.codevengers.voiceemergency;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.Parent;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
+
+import java.net.URL;
 
 public class Main extends Application {
 
+    private static Stage primaryStage;
+
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        TabPane tabPane = new TabPane();
+    public void start(Stage stage) throws Exception {
+        primaryStage = stage;
 
-        // Load each FXML as a tab content
-        tabPane.getTabs().add(createTab("User Login", "UserLogin.fxml"));
-        tabPane.getTabs().add(createTab("User Register", "UserRegister.fxml"));
-        tabPane.getTabs().add(createTab("Admin Login", "AdminLogin.fxml"));
-        tabPane.getTabs().add(createTab("Admin Register", "AdminRegister.fxml"));
+        // Debug: Check if file exists
+        URL fxmlUrl = getClass().getResource("/com/codevengers/voiceemergency/Dashboard.fxml");
+        System.out.println("Looking for FXML at: /com/codevengers/voiceemergency/Dashboard.fxml");
+        System.out.println("Found: " + (fxmlUrl != null ? fxmlUrl.toString() : "NOT FOUND"));
 
-        Scene scene = new Scene(tabPane, 400, 300);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Emergency Response - Login/Register");
-        primaryStage.show();
-    }
+        if (fxmlUrl == null) {
+            System.err.println("Dashboard.fxml not found! Check file location.");
+            System.exit(1);
+        }
 
-    private Tab createTab(String title, String fxmlFile) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-        Parent content = loader.load();
-        Tab tab = new Tab(title);
-        tab.setContent(content);
-        return tab;
-    }
+        Parent root = FXMLLoader.load(fxmlUrl);
+        stage.setTitle("QuickRescue");
 
-    public static void main(String[] args) {
-        launch(args);
+        // Set Icon
+        try {
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/codevengers/voiceemergency/sound-sensor.png")));
+        } catch (Exception e) {
+            System.out.println("Warning: Could not load icon: " + e.getMessage());
+        }
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+
+        WindowManager.setupMaximizedWindow(stage);
+
+        stage.show();
     }
 }

@@ -1,4 +1,5 @@
 package com.codevengers.voiceemergency;
+
 public class Contact {
     private String name;
     private String phone;

@@ -21,7 +21,6 @@ public class PanicButtonLauncher extends Application {
         voiceDetectionThread.setDaemon(true);
         voiceDetectionThread.start();
 
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/codevengers/voiceemergency/panic_button.fxml"));
         Parent root = loader.load();
 
@@ -30,9 +29,8 @@ public class PanicButtonLauncher extends Application {
         primaryStage.show();
     }
 
-
     public void handlePanicButtonClick() {
-        if (!EmergencyHandler.isEmergencyTriggered) {
+        if (!EmergencyHandler.isEmergencyTriggered()) {
             System.out.println("🚨 Panic Button Pressed!");
             EmergencyHandler.triggerEmergency();
         } else {
